@@ -56,8 +56,6 @@ As a user:
         - contact info: string
 
 
-
-
 Stretch goals
 - search for specific post
     - search bar
@@ -69,7 +67,7 @@ ERD
 ![Read me Images](/planning/ERD/Project_2_ERD.png)
 
 Routes_Table
-![Read me Images](/planning/Routes_Table/Project_2_Routes_Table.png)
+![Read me Images](/planning/Routes_Table/Project_2_Routes_Tablev2.png)
 
 Wire Frames
 ![Read me Images](/planning/WireFrames/Project_2_WF_1.png)
