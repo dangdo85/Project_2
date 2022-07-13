@@ -1,7 +1,7 @@
 # Project_2
 
 User story:
-    User is able to use the app to look at posts of pets available for adoption or post a request for a specific pet. Use is able to create an account and must have account to create a post. User is able to edit and delete post he/she has created. User is able to sign in and log out of account.
+    User is able to use the app to look at posts of pets available for adoption or pet items available for sale. Use is able to create an account and must have account to create a post. User is able to edit and delete post he/she has created. User is able to sign in and log out of account.
 
 As a user:
 - create user's account
@@ -44,16 +44,15 @@ As a user:
         - contact info: string
         - time stamp
     
-    - request for specific pet
+    - pet items available for sale
         - title: string
-        - species: string
-        - primatry_breed: string
-        - secondary_breed: string
-        - age: number
-        - sex: boolean
+        - items: string
+        - price: number
         - location: string
         - name of owner/contact: string
         - contact info: string
+        - time stamp
+
 
 
 Stretch goals
@@ -61,7 +60,8 @@ Stretch goals
     - search bar
 - a slide show for image gallery
 - counter for number of views for each post
-- save a post
+- favorite a post
+
 
 ERD
 ![Read me Images](/planning/ERD/Project_2_ERD.png)
