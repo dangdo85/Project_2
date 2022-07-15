@@ -1,0 +1,24 @@
+{% comment %} {% layout 'layout.liquid' %}
+
+{% block content %}
+<div>
+    <h2 class="display-6">All Pet Listings</h2>
+    <div class="row">
+
+        {% for pet in pets %}
+            <div class="card" style="width: 18rem">
+            <img src="{{startPets.images}}" alt="img">
+                <h5 class="card-header">{{startPets.title}}</h5>
+                <div class="card-body">
+                    <ul class='petInfo'>
+                    <li>Cost: ${{startPets.cost}}</li>
+                    <li>Location: {{startPets.location}}</li>
+                    </ul>
+                    
+                    <a href="/adapt-a-paw/home" class="btn btn-info">Home</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} {% endcomment %}

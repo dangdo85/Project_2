@@ -1,0 +1,39 @@
+{% comment %} {% layout 'layout.liquid' %}
+
+{% block content %}
+<div>
+    <h2 class="display-6">Pet Show Page</h2>
+    <div class="row">
+
+        {% for pet in pets %}
+            <div class="card" style="width: 18rem">
+            <img src="{{startPets.images}}" alt="img">
+                <h5 class="card-header">{{startPets.title}}</h5>
+                <div class="card-body">
+                    <ul class='petInfo'>
+                    <li>Cost: ${{startPets.cost}}</li>
+                    <li>Name: {{startPets.name}}</li>
+                    <li>Primary breed: {{startPets.primary_breed}}</li>
+                    <li>Secondary breed: {{startPets.secondary_breed}}</li>
+                    <li>Sex: 
+                        {% if startPets.sex %}
+                            male
+                        {% else %}
+                            female
+                        {% endif %}
+                    </li>
+                    <li>Age: {{startPets.age}}</li>
+                    <li>Color: {{startPets.color}}</li>
+                    <li>Size: {{startPets.size}}</li>
+                    <li>Location: {{startPets.location}}</li>
+                    <li>Name of owner: {{startPets.name_of_owner}}</li>
+                    <li>Contact info: {{startPets.contact_info}}</li>
+                    </ul>
+                    
+                    <a href="/adopt-a-paw/petlistings}" class="btn btn-info">Pet Listings</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} {% endcomment %}

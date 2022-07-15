@@ -1,0 +1,27 @@
+{% comment %} {% layout 'layout.liquid' %}
+
+{% block content %}
+<div>
+    <h2 class="display-6">Item Show Page</h2>
+    <div class="row">
+
+        {% for item in items %}
+            <div class="card" style="width: 18rem">
+            <img src="{{startItems.images}}" alt="img">
+                <h5 class="card-header">{{startItems.title}}</h5>
+                <div class="card-body">
+                    <ul class='itemInfo'>
+                    <li>Price: ${{startItems.price}}</li>
+                    <li>Description: ${{startItems.item_description}}</li>
+                    <li>Location: {{startItems.location}}</li>
+                    <li>Name of owner: {{startItems.name_of_owner}}</li>
+                    <li>Contact info: {{startItems.contact_info}}</li>
+                    </ul>
+                    
+                    <a href="/adopt-a-paw/itemlistings}" class="btn btn-info">Item Listings</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} {% endcomment %}
