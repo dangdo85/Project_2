@@ -1,0 +1,71 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+<div class="container-md">
+    <form action="/items/{{item._id}}?_method=PUT" method="POST">
+        <fieldset>
+            <legend>Edit This {{item.name}}</legend>
+            <label class="form-label">Title:</label>
+            <input 
+                type="text" 
+                name="title" 
+                placeholder="enter title" 
+                class="form-control"
+                value="{{item.title}}"
+            >
+            <label class="form-label">Description:</label>
+            <input 
+                type="text" 
+                name="item_description" 
+                placeholder="enter description"
+                class="form-control"
+                value="{{item.item_description}}"
+            >
+            <label class="form-label">Price:</label>
+            <input 
+                type="text" 
+                name="price" 
+                placeholder="enter price"
+                class="form-control"
+                value="{{item.price}}"
+            >
+            <label class="form-label">Location:</label>
+            <input 
+                type="text" 
+                name="location" 
+                placeholder="enter location"
+                class="form-control"
+                value="{{item.location}}"
+            >
+            <label class="form-label">Name of seller:</label>
+            <input 
+                type="text" 
+                name="name_of_seller" 
+                placeholder="enter name of seller"
+                class="form-control"
+                value="{{item.name_of_seller}}"
+            >
+            <label class="form-label">Contact info:</label>
+            <input 
+                type="text" 
+                name="cantact_info" 
+                placeholder="enter contact info"
+                class="form-control"
+                value="{{item.contact_info}}"
+            >
+            <label class="form-label">Images:</label>
+            <input 
+                type="text" 
+                name="images" 
+                placeholder="enter image url"
+                class="form-control"
+                value="{{item.images}}"
+            >
+        </fieldset>
+        <div class="btn-group">
+            <input type="submit" value="Edit {{ item.name }}" class="btn btn-success">
+            <a href="/items/index" class="btn btn-warning">Nevermind</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,10 +1,13 @@
 {% layout 'layout.liquid' %}
 
 {% block content %}
+<div>
+    <a href="index">Back to item listing</a>
+</div>
 <div class="container-md">
     <form action="/adopt-a-paw/items/index" method="POST">
         <fieldset>
-            <legend>Create A New Item</legend>
+            <legend>Create A New Item Post</legend>
             <label class="form-label">Title:</label>
             <input 
                 class="form-control" 
@@ -33,14 +36,14 @@
                 name="location" 
                 placeholder="enter location"
             >
-            <label class="form-label">Name of Owner:</label>
+            <label class="form-label">Name of contact:</label>
             <input 
                 class="form-control" 
                 type="text" 
                 name="name_of_owner" 
                 placeholder="enter name of owner"
             >
-            <label class="form-label">Contact Info:</label>
+            <label class="form-label">Contact info:</label>
             <input 
                 class="form-control" 
                 type="text" 

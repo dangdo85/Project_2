@@ -18,7 +18,7 @@ const itemSchema = new Schema({
         type: String,
         required: true
     },
-    name_of_owner: {
+    name_of_contact: {
         type: String,
         required: true
     },

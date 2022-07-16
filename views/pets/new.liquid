@@ -1,0 +1,117 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+<div>
+    <a href="index">Back to pet listing</a>
+</div>
+<div class="container-md">
+    <form action="/adopt-a-paw/pets/index" method="POST">
+        <fieldset>
+            <legend>Create A New Pet Post</legend>
+            <label class="form-label">Title:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="title" 
+                placeholder="enter title"
+            >
+            <label class="form-label">Cost:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="cost" 
+                placeholder="enter cost"
+            >
+            <label class="form-label">Name:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="name" 
+                placeholder="enter name of pet"
+            >
+            <label class="form-label">Species:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="species" 
+                placeholder="enter species"
+            >
+            <label class="form-label">Breed:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="breed" 
+                placeholder="enter breed"
+            >
+            <label class="form-label">Sex:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="sex" 
+                placeholder="enter sex of pet"
+            >
+            <label class="form-label">Age:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="age" 
+                placeholder="enter age of pet"
+            >
+            <label class="form-label">Color:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="color" 
+                placeholder="enter color of pet"
+            >
+            <label class="form-label">Size:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="size" 
+                placeholder="enter size of pet"
+            >
+            <label class="form-label">Other descriptions:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="other_descriptions" 
+                placeholder="enter other descriptions"
+            >
+            <label class="form-label">Location:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="location" 
+                placeholder="enter location"
+            >
+            <label class="form-label">Name of contact:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="name_of_contact" 
+                placeholder="enter name of contact"
+            >
+            <label class="form-label">Contact info:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="contact_info" 
+                placeholder="enter contact info"
+            >
+            <label class="form-label">Images:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="images" 
+                placeholder="enter image url"
+            >
+        </fieldset>
+        <input 
+            type="submit" 
+            value="Create New Pet Post" 
+            class="btn btn-success"
+        >
+    </form>
+</div>
+{% endblock %}

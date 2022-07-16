@@ -17,7 +17,7 @@ db.on('open', () => {
         price: "$50",
         item_description:'20 gallon tank with filter, lights, heater, and substrate',
         location: 'Lawrenceville, GA',
-        name_of_owner: 'Gabby',
+        name_of_contact: 'Gabby',
         contact_info: 'gabby1@gmail.com 404 555-1234',
         images: '',
     }, {
@@ -25,7 +25,7 @@ db.on('open', () => {
         price: "$35",
         item_description:'automatic feeder for dogs or cats',
         location: 'Auburn, AL',
-        name_of_owner: 'Terry',
+        name_of_contact: 'Terry',
         contact_info: 'terry2@gmail.com 123 123-1234',
         images: '',
     }, {
@@ -33,7 +33,7 @@ db.on('open', () => {
         price: "$100",
         item_description:'large raised dog bed, comfortable and easy to clean',
         location: 'Asheville, NC',
-        name_of_owner: 'Jill',
+        name_of_contact: 'Jill',
         contact_info: 'Jill3@gmail.com 987 654-3210',
         images: '',
     }, {
@@ -41,7 +41,7 @@ db.on('open', () => {
         price: "$200",
         item_description:'lightly used 100 gallon tank with brown and black stand ensemble',
         location: 'NYC, NY',
-        name_of_owner: 'Ryan',
+        name_of_contact: 'Ryan',
         contact_info: 'ryan4@gmail.com 111 111-1111',
         images: '',
     }, {
@@ -49,7 +49,7 @@ db.on('open', () => {
         price: "$350+",
         item_description:'made to specification, solid construction, assemble on property, 1 year warrenty',
         location: 'Fairfax, VA',
-        name_of_owner: 'Dennis',
+        name_of_contact: 'Dennis',
         contact_info: 'dennis5@gmail.com 444 444-4444',
         images: '',
     }, {
@@ -57,7 +57,7 @@ db.on('open', () => {
         price: "$90",
         item_description:'brand new out-of-the-box 6ft H, 3ft W, 2.5ft D',
         location: 'Louisville, KY',
-        name_of_owner: 'Jasmine',
+        name_of_contact: 'Jasmine',
         contact_info: 'jasmine6@gmail.com 112 358-1321',
         images: '',
     }, {
@@ -65,7 +65,7 @@ db.on('open', () => {
         price: "$20",
         item_description:'used tennis balls great for dogs',
         location: 'Clearwater, FL',
-        name_of_owner: 'Gary',
+        name_of_contact: 'Gary',
         contact_info: 'gary7@gmail.com 321 322-3322',
         images: '',
     }, {
@@ -73,7 +73,7 @@ db.on('open', () => {
         price: "$100",
         item_description:'great for pet to use on their own or for owners with problems throwing balls',
         location: 'Sacramento, CA',
-        name_of_owner: 'Lexi',
+        name_of_contact: 'Lexi',
         contact_info: 'Lexi8@gmail.com 878 888-8888',
         images: '',
     }, {
@@ -81,7 +81,7 @@ db.on('open', () => {
         price: "$99+",
         item_description:'Be the talk of your pet owner friends with a fashionable, durable, comfortable, and easy-to-carry home away from home for your small size pet. Lots of options to choose from.',
         location: 'Fresno, CA',
-        name_of_owner: 'Betty',
+        name_of_contact: 'Betty',
         contact_info: 'betty9@gmail.com 888 555-5555',
         images: '',
     }, {
@@ -89,7 +89,7 @@ db.on('open', () => {
         price: "$30+",
         item_description:'Dog walking service with 5+ years of experience in the Atlanta area. Call for more details',
         location: 'Atlanta, GA',
-        name_of_owner: 'Harry',
+        name_of_contact: 'Harry',
         contact_info: 'harry0@gmail.com 770 111-0000',
         images: '',
     }, 

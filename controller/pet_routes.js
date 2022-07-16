@@ -1,7 +1,7 @@
 const express = require('express')
 
 // importing Fruit model to access database
-const Item = require('../models/pet')
+const Pet = require('../models/pet')
 
 // making a router
 const router = express.Router()
@@ -95,47 +95,46 @@ const router = express.Router()
 // // // })
 
 // // // // GET route for displaying my form for create
-// // // router.get('/new', (req, res) => {
-// // //     const username = req.session.username
-// // //     const loggedIn = req.session.loggedIn
-// // //     res.render('pets/new', { username, loggedIn })
-// // // })
+router.get('/new', (req, res) => {
+    const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    res.render('pets/new', { username, loggedIn })
+})
 
-// // // // POST - Create
-// // // router.post('/', (req, res) => {
-// // //     req.body.sex = req.body.sex === 'on' ? true : false
+// POST - Create
+router.post('/index', (req, res) => {
 
-// // //     // now that we have user specific fruits, we'll add a username upon creation
-// // //     // remember, when we login, we saved the username to the session object
-// // //     // using the ._id to set the owner field
+    // now that we have user specific fruits, we'll add a username upon creation
+    // remember, when we login, we saved the username to the session object
+    // using the ._id to set the owner field
     
-// // //     req.body.owner = req.session.userId
+    req.body.owner = req.session.userId
 
-// // //     console.log(req.body)
-// // //     Item.create(req.body)
-// // //         .then(pet => {
-// // //             console.log(pet)
-// // //             // res.json(fruit)
-// // //             res.redirect('/pets')
-// // //         })
-// // //         .catch(err => {
-// // //             res.json(err)
-// // //         })
-// // // })
+    console.log(req.body)
+    Pet.create(req.body)
+        .then(pet => {
+            console.log(pet)
+            // res.json(fruit)
+            res.redirect('/adopt-a-paw/pets/index')
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
 
 // GET - Index
 // localhost:3000/fruits
 router.get('/index', (req, res) => {
-// // //     // mongoose to find all fruits
-// // //     Pet.find({})
-// // //     // return fruits as json
-// // //         .then(items => {
-// // //             // res.json(fruit)
-             res.render('pets/index')
-// // //         })
-// // //         .catch(err => {
-// // //             res.json(err)
-// // //         })
+        // mongoose to find all fruits
+        Pet.find({})
+        // return fruits as json
+        .then(pets => {
+           // res.json(fruit)
+        res.render('pets/index', { pets })
+        })
+        .catch(err => {
+            res.json(err)
+        })
 })
 
 // // // router.get('/mine', (req, res) => {
