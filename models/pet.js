@@ -51,7 +51,11 @@
 //     }, 
 //     images: {
 //         type: String
-//     } 
+//     }, 
+        // owner: {
+        // type: Schema.Types.ObjectId, // a single User ._id
+        // ref: 'User', // const User = model('User', userSchema) the string of 'User' is how we reference a model
+        // },
 // },
 //     {
 //         timestamps: true

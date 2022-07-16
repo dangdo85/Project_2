@@ -1,0 +1,65 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+<div class="container-md">
+    <form action="/adopt-a-paw/items/index" method="POST">
+        <fieldset>
+            <legend>Create A New Item</legend>
+            <label class="form-label">Title:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="title" 
+                placeholder="enter title"
+            >
+            <label class="form-label">Description:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="item_description" 
+                placeholder="enter description"
+            >
+            <label class="form-label">Price:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="price" 
+                placeholder="enter price"
+            >
+            <label class="form-label">Location:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="location" 
+                placeholder="enter location"
+            >
+            <label class="form-label">Name of Owner:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="name_of_owner" 
+                placeholder="enter name of owner"
+            >
+            <label class="form-label">Contact Info:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="contact_info" 
+                placeholder="enter contact info"
+            >
+            <label class="form-label">Images:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="images" 
+                placeholder="enter image url"
+            >
+        </fieldset>
+        <input 
+            type="submit" 
+            value="Create New Item" 
+            class="btn btn-success"
+        >
+    </form>
+</div>
+{% endblock %}

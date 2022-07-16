@@ -3,8 +3,6 @@ const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
 
-
-
 const petRoutes = require('./controller/pet_routes')
 const itemRoutes = require('./controller/item_routes')
 const userRoutes = require('./controller/user_routes')
