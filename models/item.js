@@ -1,41 +1,18 @@
 const mongoose = require('./connection')
 const { Schema, model } = mongoose
 
-const petSchema = new Schema({
+const itemSchema = new Schema({
     title: {
         type: String,
         required: true
     },
-    cost: {
-        type: String,
-        required: true
-    }, 
-    name: {
+    item_description: {
         type: String,
         required: true
     },
-    primary_breed: {
+    price: {
         type: String,
         required: true
-    },
-    secondary_breed: {
-        type: String
-    },
-    sex: {
-        type: Boolean,
-        required: true
-    },
-    age: {
-        type: String,
-    },
-    color: {
-        type: String
-    },
-    size: {
-        type: String
-    },
-    other_descriptions: {
-        type: String
     },
     location: {
         type: String,
@@ -48,10 +25,10 @@ const petSchema = new Schema({
     contact_info: {
         type: String,
         required: true
-    }, 
+    },
     images: {
-        type: String
-    } 
+        type: String,
+    }
 },
     {
         timestamps: true
@@ -60,6 +37,6 @@ const petSchema = new Schema({
 )
 
 
-const Pet = model('Pet', petSchema)
+const Item = model('Item', itemSchema)
 
-module.exports = Pet
+module.exports = Item

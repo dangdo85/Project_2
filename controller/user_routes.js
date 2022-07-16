@@ -17,6 +17,7 @@ const router = express.Router()
 // two sign up routes
 // one GET to show the form
 router.get('/signup', (req, res) => {
+    // res.send('sign up page')
     res.render('users/signup')
 })
 // one POST to make the db request

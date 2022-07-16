@@ -1,11 +1,12 @@
-{% comment %} {% layout 'layout.liquid' %}
+{% layout 'layout.liquid' %}
 
 {% block content %}
 <div>
-    <h2 class="display-6">All Pet Listings</h2>
+    <h2 class="display-6">All Pet Listing</h2>
     <div class="row">
 
         {% for pet in pets %}
+            <p>inside for loop</p>
             <div class="card" style="width: 18rem">
             <img src="{{startPets.images}}" alt="img">
                 <h5 class="card-header">{{startPets.title}}</h5>
@@ -21,4 +22,4 @@
         {% endfor %}
     </div>
 </div>
-{% endblock %} {% endcomment %}
+{% endblock %}

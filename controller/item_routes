@@ -1,10 +1,12 @@
-// const express = require('express')
-// // making a router
-// const router = express.Router()
-// // importing Fruit model to access database
-// const Item = require('../models/items')
+const express = require('express')
 
-// // DELETE - Delete
+// importing Fruit model to access database
+const Item = require('../models/item')
+
+// making a router
+const router = express.Router()
+
+// DELETE - Delete
 // router.delete('/:id', (req, res) => {
 //     const itemId = req.params.id
 
@@ -75,20 +77,21 @@
 //         })
 // })
 
-// // GET - Index
-// // localhost:3000/fruits
-// router.get('/', (req, res) => {
-//     // mongoose to find all fruits
-//     Item.find({})
-//     // return fruits as json
-//         .then(items => {
-//             // res.json(fruit)
-//             res.render('items/listings', { item })
-//         })
-//         .catch(err => {
-//             res.json(err)
-//         })
-// })
+// GET - Index
+// localhost:3000/fruits
+router.get('/index', (req, res) => {
+    // mongoose to find all fruits
+    Item.find({})
+    // // return fruits as json
+        .then(items => {
+            // res.json(fruit)
+    // res.send('item index from routes')
+            res.render('items/index', { items })
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
 
 // router.get('/mine', (req, res) => {
 //     // find the fruits associated with the logged in user
@@ -102,53 +105,28 @@
 //         })
 // })
 
-// // seed route --> has been moved to models/seed.js
-// // insert many items into our database with just going to this route
-// // localhost:3000/fruits/seed
-// // router.get('/seed', (req, res) => {
-// //     // starting data
-// //     const startFruits = [
-// //     { name: "Orange", color: "orange", readyToEat: false },
-// //     { name: "Grape", color: "purple", readyToEat: false },
-// //     { name: "Banana", color: "orange", readyToEat: false },
-// //     { name: "Strawberry", color: "red", readyToEat: false },
-// //     { name: "Coconut", color: "brown", readyToEat: false },
-// //   ]
-// //   // delete if we have fruits
-// //   Fruit.deleteMany({})
-// // 		// insert data
-// // 		.then(() => {
-// //             Fruit.create(startFruits)
-// //             // return this data as json to view
-// //             .then(data => {
-// //                 res.json(data)
-// //             })
-// //             // .catch(err => console.error(err))
-// // 		    .catch(console.error)
-// //         })
-// // })
 
-// // GET - Show
-// // localhost:3000/fruits/:id <- change with the id being passed in
-// router.get('/:id', (req, res) => {
-//     const itemId = req.params.id
+// GET - Show
+// localhost:3000/fruits/:id <- change with the id being passed in
+router.get('/:id', (req, res) => {
+    const itemId = req.params.id
 
-//     Item.findById(itemId)
-//     // populate our User models fields
-//     // comment has an author field and that is the ref to the User model
-//     // always going to be a string of the value you want to populate
-//     // this also has to be anohter model 
-//         .populate('comments.author')
-//         // send back some json
-//         .then(item => {
-//             // res.json(fruit)
-//             const userId = req.session.userId
-//             const username = req.session.username
-//             res.render('items/show', { item, userId, username })
-//         })
-//         .catch(err => {
-//             res.json(err)
-//         })
-// })
+    Item.findById(itemId)
+    // populate our User models fields
+    // comment has an author field and that is the ref to the User model
+    // always going to be a string of the value you want to populate
+    // this also has to be anohter model 
+        // .populate('comments.author')
+        // send back some json
+        .then(item => {
+            // res.json(fruit)
+            // const userId = req.session.userId
+            // const username = req.session.username
+            res.render('items/show', { item}) //, userId, username })
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
 
-// module.exports = router
+module.exports = router

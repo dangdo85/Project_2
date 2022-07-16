@@ -1,27 +1,29 @@
-{% comment %} {% layout 'layout.liquid' %}
+{% layout 'layout.liquid' %}
 
 {% block content %}
+<a href="/adopt-a-paw/items/index}" class="btn btn-info">Item Listing</a>
 <div>
     <h2 class="display-6">Item Show Page</h2>
     <div class="row">
 
-        {% for item in items %}
             <div class="card" style="width: 18rem">
-            <img src="{{startItems.images}}" alt="img">
-                <h5 class="card-header">{{startItems.title}}</h5>
+            <img src="{{item.images}}" alt="img">
+                <h5 class="card-header">{{item.title}}</h5>
                 <div class="card-body">
                     <ul class='itemInfo'>
-                    <li>Price: ${{startItems.price}}</li>
-                    <li>Description: ${{startItems.item_description}}</li>
-                    <li>Location: {{startItems.location}}</li>
-                    <li>Name of owner: {{startItems.name_of_owner}}</li>
-                    <li>Contact info: {{startItems.contact_info}}</li>
+                    <li>Price: ${{item.price}}</li>
+                    <li>Description: ${{item.item_description}}</li>
+                    <li>Location: {{item.location}}</li>
+                    <li>Name of owner: {{item.name_of_owner}}</li>
+                    <li>Contact info: {{item.contact_info}}</li>
                     </ul>
-                    
-                    <a href="/adopt-a-paw/itemlistings}" class="btn btn-info">Item Listings</a>
                 </div>
+                {% comment %} <a href="/fruits/{{fruit._id}}/edit" class="btn btn-primary">Edit Fruit</a>
+                <form action="/fruits/{{fruit._id}}?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                </form> {% endcomment %}
             </div>
-        {% endfor %}
+
     </div>
 </div>
-{% endblock %} {% endcomment %}
+{% endblock %}
