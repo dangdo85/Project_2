@@ -1,7 +1,7 @@
 {% layout 'layout.liquid' %}
 
 {% block content %}
-<a href="/adopt-a-paw/items/index}" class="btn btn-info">Item Listing</a>
+<a href="/adopt-a-paw/items/index" class="btn btn-info">Item Listing</a>
 <div>
     <h2 class="display-6">Item Show Page</h2>
     <div class="row">
@@ -11,17 +11,17 @@
                 <h5 class="card-header">{{item.title}}</h5>
                 <div class="card-body">
                     <ul class='itemInfo'>
-                    <li>Price: ${{item.price}}</li>
-                    <li>Description: ${{item.item_description}}</li>
+                    <li>Price: {{item.price}}</li>
+                    <li>Description: {{item.item_description}}</li>
                     <li>Location: {{item.location}}</li>
-                    <li>Name of owner: {{item.name_of_contact}}</li>
+                    <li>Name of contact: {{item.name_of_contact}}</li>
                     <li>Contact info: {{item.contact_info}}</li>
                     </ul>
                 </div>
-                {% comment %} <a href="/fruits/{{fruit._id}}/edit" class="btn btn-primary">Edit Fruit</a>
-                <form action="/fruits/{{fruit._id}}?_method=DELETE" method="POST">
+                <a href="/items/{{item._id}}/edit" class="btn btn-primary">Edit Item</a> 
+                <form action="/adopt-a-paw/items/{{item._id}}/?_method=DELETE" method="POST">
                     <input type="submit" value="Delete" class="btn btn-danger">
-                </form> {% endcomment %}
+                </form> 
             </div>
 
     </div>

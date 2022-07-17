@@ -1,27 +1,31 @@
 {% layout 'layout.liquid' %}
 
 {% block content %}
-<a href="/adopt-a-paw/pets/index}" class="btn btn-info">Item Listing</a>
+<a href="/adopt-a-paw/pets/index" class="btn btn-info">Pet Listing</a>
 <div>
     <h2 class="display-6">Pet Show Page</h2>
     <div class="row">
             <div class="card" style="width: 18rem">
             <img src="{{pets.images}}" alt="img">
-                <h5 class="card-header">{{pets.title}}</h5>
+                <h5 class="card-header">{{pet.title}}</h5>
                 <div class="card-body">
                     <ul class='petInfo'>
-                    <li>Cost: {{pets.cost}}</li>
-                    <li>Name: {{pets.name}}</li>
-                    <li>Breed: {{pets.breed}}</li>
-                    <li>Sex: {{pets.sex}}</li>
-                    <li>Age: {{pets.age}}</li>
-                    <li>Color: {{pets.color}}</li>
-                    <li>Size: {{pets.size}}</li>
-                    <li>Location: {{pets.location}}</li>
-                    <li>Name of contact: {{pets.name_of_contact}}</li>
-                    <li>Contact info: {{pets.contact_info}}</li>
+                    <li>Cost: {{pet.cost}}</li>
+                    <li>Name: {{pet.name}}</li>
+                    <li>Breed: {{pet.breed}}</li>
+                    <li>Sex: {{pet.sex}}</li>
+                    <li>Age: {{pet.age}}</li>
+                    <li>Color: {{pet.color}}</li>
+                    <li>Size: {{pet.size}}</li>
+                    <li>Location: {{pet.location}}</li>
+                    <li>Name of contact: {{pet.name_of_contact}}</li>
+                    <li>Contact info: {{pet.contact_info}}</li>
                     </ul>
                 </div>
+                <a href="/pets/{{pet._id}}/edit" class="btn btn-primary">Edit Pet</a> 
+                <form action="/adopt-a-paw/pets/{{pet._id}}/?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                </form> 
             </div>
     </div>
 </div>

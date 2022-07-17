@@ -6,64 +6,19 @@ const Pet = require('../models/pet')
 // making a router
 const router = express.Router()
 
-// fetch route
 
-// router.post('/', (req, res) => {
-//     const zipcode = req.body.zipcode
-//     const APIrequestUrl = https://api.petfinder.com/v2/oauth2/token
-//     fetch(APIrequestUrl)
-//     .then(res => res.json())
-//     .then(data => {
-//         // console.log("Bam", data)
-//         res.render("show", {data})
-//     })
-//     .catch(err => {
-//         // console.log("Err", err)
-//         res.json(err)
-//     })
-// })
-// fetch("https://api.petfinder.com/v2/oauth2/token", {
-//   body: `grant_type=client_credentials&client_id=${API_KEY}&client_secret=${SECRET}`,
-//   headers: {
-//     "Content-Type": "application/x-www-form-urlencoded"
-//   },
-//   method: "POST"
-// })
-
-// fetch("https://api.petfinder.com/v2/{CATEGORY}/{ACTION}?{parameter_1}={value_1}&{parameter_2}={value_2}", {
-//   headers: {
-//     Authorization: `Bearer ${TOKEN}`
-//   }
-// })
-
-// // router.post('/', (req, res) => {
-// //     const zipcode = req.body.zipcode
-// //     const APIrequestUrl = 
-// //     fetch(APIrequestUrl)
-// //     .then(res => res.json())
-// //     .then(data => {
-// //         console.log("Bam", data)
-// //         // res.render("show", {data})
-// //     })
-// //     .catch(err => {
-// //         // console.log("Err", err)
-// //         res.json(err)
-// //     })
-// // })
-
-
-// // // DELETE - Delete
-// // // router.delete('/:id', (req, res) => {
-// // //     const petId = req.params.id
-
-// // //     Fruit.findByIdAndRemove(petId)
-// // //         .then(pet => {
-// // //             res.redirect('/pet')
-// // //         })
-// // //         .catch(err => {
-// // //             res.json(err)
-// // //         })
-// // // })
+// DELETE - Delete
+router.delete('/:id', (req, res) => {
+    const petId = req.params.id
+    // console.log('petId', petId)
+    Pet.findByIdAndRemove(petId)
+        .then(pet => {
+            res.redirect('/adopt-a-paw/pets/index')
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
 
 // // // GET route for displaying an update form
 // // // router.get('/:id/edit', (req, res) => {
@@ -151,27 +106,27 @@ router.get('/index', (req, res) => {
 
 
 
-// // // // GET - Show
-// // // // localhost:3000/fruits/:id <- change with the id being passed in
-// // // router.get('/:id', (req, res) => {
-// // //     const petId = req.params.id
-
-// // //     Pet.findById(petId)
-// // //     // populate our User models fields
-// // //     // comment has an author field and that is the ref to the User model
-// // //     // always going to be a string of the value you want to populate
-// // //     // this also has to be anohter model 
-// // //         .populate('comments.author')
-// // //         // send back some json
-// // //         .then(pet => {
-// // //             // res.json(fruit)
-// // //             const userId = req.session.userId
-// // //             const username = req.session.username
-// // //             res.render('pets/show', { pet, userId, username })
-// // //         })
-// // //         .catch(err => {
-// // //             res.json(err)
-// // //         })
-// // // })
+// GET - Show
+// localhost:3000/fruits/:id <- change with the id being passed in
+router.get('/:id', (req, res) => {
+    const petId = req.params.id
+    // console.log('petId', petId)
+    // console.log('param', req.params.id)
+    Pet.findById(petId)
+    // populate our User models fields
+    // comment has an author field and that is the ref to the User model
+    // always going to be a string of the value you want to populate
+    // this also has to be anohter model 
+        // send back some json
+        .then(pet => {
+            // res.json(fruit)
+            const userId = req.session.userId
+            const username = req.session.username
+            res.render('pets/show', { pet, userId, username })
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
 
 module.exports = router
