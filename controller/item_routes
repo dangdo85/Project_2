@@ -20,33 +20,31 @@ router.delete('/:id', (req, res) => {
 })
 
 // GET route for displaying an update form
-// router.get('/:id/edit', (req, res) => {
-//     const itemId = req.params.id
+router.get('/:id/edit', (req, res) => {
+    // console.log('edit route here')
+    const itemId = req.params.id
+    Item.findById(itemId)
+        .then(item => {
+            res.render('items/edit', { item })
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
 
-//     Item.findById(itemId)
-//         .then(item => {
-//             res.render('items/edit', { item })
-//         })
-//         .catch(err => {
-//             res.json(err)
-//         })
-// })
-
-// // PUT - Update
-// // localhost:3000/fruits/:id
-// router.put('/:id', (req, res) => {
-//     const itemId = req.params.id
-
-//     req.body.sex = req.body.sex === 'on' ? true : false
-
-//     Fruit.findByIdAndUpdate(itemId, req.body, { new: true })
-//         .then(item => {
-//             res.redirect(`/items/${item._id}`)
-//         })
-//         .catch(err => {
-//             res.json(err)
-//         })
-// })
+// PUT - Update
+// localhost:3000/fruits/:id
+router.put('/:id', (req, res) => {
+    const itemId = req.params.id
+    // console.log('put route here')
+    Item.findByIdAndUpdate(itemId, req.body, { new: true })
+        .then(item => {
+            res.redirect(`${item._id}`)
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
 
 // GET route for displaying my form for create
 router.get('/new', (req, res) => {

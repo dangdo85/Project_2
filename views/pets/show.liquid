@@ -22,7 +22,7 @@
                     <li>Contact info: {{pet.contact_info}}</li>
                     </ul>
                 </div>
-                <a href="/pets/{{pet._id}}/edit" class="btn btn-primary">Edit Pet</a> 
+                <a href="{{pet._id}}/edit" class="btn btn-primary">Edit Pet Post</a> 
                 <form action="/adopt-a-paw/pets/{{pet._id}}/?_method=DELETE" method="POST">
                     <input type="submit" value="Delete" class="btn btn-danger">
                 </form> 

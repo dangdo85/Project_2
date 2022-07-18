@@ -20,34 +20,32 @@ router.delete('/:id', (req, res) => {
         })
 })
 
-// // // GET route for displaying an update form
-// // // router.get('/:id/edit', (req, res) => {
-// // //     const petId = req.params.id
+// GET route for displaying an update form
+router.get('/:id/edit', (req, res) => {
+    const petId = req.params.id
 
-// // //     pet.findById(petId)
-// // //         .then(pet => {
-// // //             res.render('pets/edit', { pet })
-// // //         })
-// // //         .catch(err => {
-// // //             res.json(err)
-// // //         })
-// // // })
+    Pet.findById(petId)
+        .then(pet => {
+            res.render('pets/edit', { pet })
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
 
-// // // // PUT - Update
-// // // // localhost:3000/fruits/:id
-// // // router.put('/:id', (req, res) => {
-// // //     const petId = req.params.id
+// PUT - Update
+// localhost:3000/fruits/:id
+router.put('/:id', (req, res) => {
+    const petId = req.params.id
 
-// // //     req.body.sex = req.body.sex === 'on' ? true : false
-
-// // //     Pet.findByIdAndUpdate(petId, req.body, { new: true })
-// // //         .then(pet => {
-// // //             res.redirect(`/pets/${pet._id}`)
-// // //         })
-// // //         .catch(err => {
-// // //             res.json(err)
-// // //         })
-// // // })
+    Pet.findByIdAndUpdate(petId, req.body, { new: true })
+        .then(pet => {
+            res.redirect(`${pet._id}`)
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
 
 // // // // GET route for displaying my form for create
 router.get('/new', (req, res) => {

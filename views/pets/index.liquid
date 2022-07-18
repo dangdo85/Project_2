@@ -10,7 +10,6 @@
     <div class="row">
 
         {% for pet in pets %}
-            <p>inside for loop</p>
             <div class="card" style="width: 18rem">
             <img src="`{{pet.images}}`" alt="img">
                 <a href="./{{pet._id}}"><h5 class="card-header">{{pet.title}}</h5></a>
@@ -20,7 +19,7 @@
                     <li>Location: {{pet.location}}</li>
                     </ul>
                 </div>
-                <a href="/pets/{{pet._id}}/edit" class="btn btn-primary">Edit Pet</a>
+                <a href="{{pet._id}}/edit" class="btn btn-primary">Edit Pet</a>
             </div>
         {% endfor %}
     </div>

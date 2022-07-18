@@ -18,7 +18,7 @@
                     <li>Contact info: {{item.contact_info}}</li>
                     </ul>
                 </div>
-                <a href="/items/{{item._id}}/edit" class="btn btn-primary">Edit Item</a> 
+                <a href="{{item._id}}/edit" class="btn btn-primary">Edit Item Post</a> 
                 <form action="/adopt-a-paw/items/{{item._id}}/?_method=DELETE" method="POST">
                     <input type="submit" value="Delete" class="btn btn-danger">
                 </form> 

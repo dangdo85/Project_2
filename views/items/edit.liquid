@@ -2,14 +2,14 @@
 
 {% block content %}
 <div class="container-md">
-    <form action="/items/{{item._id}}?_method=PUT" method="POST">
+    <form action="/adopt-a-paw/items/{{item._id}}?_method=PUT" method="POST">
         <fieldset>
-            <legend>Edit This {{item.name}}</legend>
+            <legend>Edit Item Post</legend>
             <label class="form-label">Title:</label>
             <input 
                 type="text" 
                 name="title" 
-                placeholder="enter title" 
+                placeholder="enter title"
                 class="form-control"
                 value="{{item.title}}"
             >
@@ -17,7 +17,7 @@
             <input 
                 type="text" 
                 name="item_description" 
-                placeholder="enter description"
+                placeholder="enter item description"
                 class="form-control"
                 value="{{item.item_description}}"
             >
@@ -37,13 +37,13 @@
                 class="form-control"
                 value="{{item.location}}"
             >
-            <label class="form-label">Name of seller:</label>
+            <label class="form-label">Name of contact:</label>
             <input 
                 type="text" 
-                name="name_of_seller" 
-                placeholder="enter name of seller"
+                name="name_of_contact" 
+                placeholder="enter name of contact"
                 class="form-control"
-                value="{{item.name_of_seller}}"
+                value="{{item.name_of_contact}}"
             >
             <label class="form-label">Contact info:</label>
             <input 
@@ -63,8 +63,8 @@
             >
         </fieldset>
         <div class="btn-group">
-            <input type="submit" value="Edit {{ item.name }}" class="btn btn-success">
-            <a href="/items/index" class="btn btn-warning">Nevermind</a>
+            <input type="submit" value="Edit post" class="btn btn-success">
+            <a href="/adopt-a-paw/items/index" class="btn btn-warning">Nevermind</a>
         </div>
     </form>
 </div>
