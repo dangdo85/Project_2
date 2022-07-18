@@ -18,7 +18,12 @@
                     <li>Cost: {{item.price}}</li>
                     <li>Location: {{item.location}}</li>
                     </ul>
-                    
+                    <div>
+                    <small>Author: {{ username }}</small>
+                    </div>
+                    <div>
+                    <small>Created: {{item.createdAt }}</small>
+                    </div>
                     
                 </div>
                 <a href="{{item._id}}/edit" class="btn btn-primary">Edit Item</a>

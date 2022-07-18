@@ -53,10 +53,10 @@ const petSchema = new Schema({
     images: {
         type: String
     }, 
-        owner: {
-        type: Schema.Types.ObjectId, // a single User ._id
-        ref: 'User', // const User = model('User', userSchema) the string of 'User' is how we reference a model
-        },
+    author: {
+    type: Schema.Types.ObjectId, // a singleUser ._id
+    ref: 'User', // const User = mode('User', userSchema) the string of 'User'is how we reference a model
+    },
 },
     {
         timestamps: true
