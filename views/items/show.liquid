@@ -17,6 +17,12 @@
                     <li>Name of contact: {{item.name_of_contact}}</li>
                     <li>Contact info: {{item.contact_info}}</li>
                     </ul>
+                    <div>
+                    <small>Author: {{ item.author }}</small>
+                    </div>
+                    <div>
+                    <small>Created: {{item.updatedAt }}</small>
+                    </div>
                 </div>
                 <a href="{{item._id}}/edit" class="btn btn-primary">Edit Item Post</a> 
                 <form action="/adopt-a-paw/items/{{item._id}}/?_method=DELETE" method="POST">

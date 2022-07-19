@@ -90,17 +90,17 @@ router.get('/index', (req, res) => {
         })
 })
 
-// // // router.get('/mine', (req, res) => {
-// // //     // find the fruits associated with the logged in user
-// // //     Pet.find({ owner: req.session.userId })
-// // //         .then(pets => {
-// // //             res.render('pets/index', { pets })
-// // //         })
-// // //         .catch(error => {
-// // //             console.log(error)
-// // //             res.json({ error })
-// // //         })
-// // // })
+router.get('/mine', (req, res) => {
+    // find the pets associated with the logged in user
+    Pet.find({ owner: req.session.userId })
+        .then(pets => {
+            res.render('pets/index', { pets })
+        })
+        .catch(error => {
+            console.log(error)
+            res.json({ error })
+        })
+})
 
 
 

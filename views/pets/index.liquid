@@ -19,10 +19,10 @@
                     <li>Location: {{pet.location}}</li>
                     </ul>
                     <div>
-                    <small>Author: {{ username }}</small>
+                    <small>Author: {{ pet.owner }}</small>
                     </div>
                     <div>
-                    <small>Created: {{item.createdAt }}</small>
+                    <small>Created: {{ pet.updatedAt }}</small>
                     </div>
                 </div>
                 <a href="{{pet._id}}/edit" class="btn btn-primary">Edit Pet</a>

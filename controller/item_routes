@@ -39,7 +39,7 @@ router.put('/:id', (req, res) => {
     // console.log('put route here')
     Item.findByIdAndUpdate(itemId, req.body, { new: true })
         .then(item => {
-            res.redirect(`${item._id}`)
+            res.redirect(`${item._id}`, author)
         })
         .catch(err => {
             res.json(err)
@@ -58,7 +58,7 @@ router.get('/new', (req, res) => {
 // POST - Create
 router.post('/index', (req, res) => {
 
-    // now that we have user specific fruits, we'll add a username upon creation
+    // now that we have user specific items, we'll add a username upon creation
     // remember, when we login, we saved the username to the session object
     // using the ._id to set the owner field
     
@@ -68,7 +68,6 @@ router.post('/index', (req, res) => {
     Item.create(req.body)
         .then(item => {
             console.log(item)
-            // res.json(fruit)
             res.redirect('/adopt-a-paw/items/index')
         })
         .catch(err => {
@@ -92,17 +91,18 @@ router.get('/index', (req, res) => {
         })
 })
 
-// router.get('/mine', (req, res) => {
-//     // find the fruits associated with the logged in user
-//     Item.find({ owner: req.session.userId })
-//         .then(items => {
-//             res.render('items/index', { items })
-//         })
-//         .catch(error => {
-//             console.log(error)
-//             res.json({ error })
-//         })
-// })
+router.get('/mine', (req, res) => {
+    // res.send('in mine route')
+    // find the items associated with the logged in user
+    Item.find({ owner: req.session.userId })
+        .then(items => {
+            res.render('items/index', { items })
+        })
+        .catch(error => {
+            console.log(error)
+            res.json({ error })
+        })
+})
 
 
 // GET - Show
@@ -115,6 +115,7 @@ router.get('/:id', (req, res) => {
     // comment has an author field and that is the ref to the User model
     // always going to be a string of the value you want to populate
     // this also has to be anohter model 
+    // .populate('items.author')
         // send back some json
         .then(item => {
             // res.json(fruit)

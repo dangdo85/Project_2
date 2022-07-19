@@ -39,7 +39,7 @@ router.post('/signup', async (req, res) => {
         // if created successfully, we'll redirect to the login page
         .then(user => {
             console.log('this is the new user', user)
-            res.redirect('/users/login')
+            res.redirect('/adopt-a-paw/home')
         })
         // if creation was unsuccessful, send the error
         .catch(error => {
