@@ -3,6 +3,8 @@
 ///////////////////////////////////////
 const express = require('express')
 const User = require('../models/user')
+const Item = require('../models/item')
+const Pet = require('../models/pet')
 // bcrypt is used to hash(read: encrypt) passwords
 const bcrypt = require('bcryptjs')
 
@@ -110,6 +112,30 @@ router.get('/logout', (req, res) => {
         res.redirect('/adopt-a-paw')
     })
 })
+
+
+router.get('/my_account', async (req, res) => {
+    const userId = req.session.userId
+    const items = await Item.find({ owner: req.session.userId })
+    const pets = await Pet.find({ owner: req.session.userId })
+    // const puzzle = await Puzzle.find({owner: user})
+    
+    res.render('users/user_account', { userId, items, pets})
+        // .catch(error => {
+        //     console.log(error)
+        //     res.json({ error })
+        // })    
+})
+
+
+// router.get('/my_account', async (req, res) => {
+//     // res.send('mine route')
+//     const foo = await Item.find({ owner: req.session.userId })
+//     // all code inside this function stops until we get the response from Foo.findById
+//     const bar = await Pet.find({ owner: req.session.userId })
+//     // again all code stops until Bar.findById finishes
+//     res.render('users/user_account', { foo, bar })
+// })
 
 ///////////////////////////////////////
 // export our router

@@ -1,6 +1,6 @@
 const express = require('express')
 
-// importing Fruit model to access database
+// importing pet model to access database
 const Pet = require('../models/pet')
 
 // making a router
@@ -34,7 +34,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 // PUT - Update
-// localhost:3000/fruits/:id
+// localhost:3000/adopt-a-paw/pets/:id
 router.put('/:id', (req, res) => {
     const petId = req.params.id
 
@@ -57,7 +57,7 @@ router.get('/new', (req, res) => {
 // POST - Create
 router.post('/index', (req, res) => {
 
-    // now that we have user specific fruits, we'll add a username upon creation
+    // now that we have user specific pets, we'll add a username upon creation
     // remember, when we login, we saved the username to the session object
     // using the ._id to set the owner field
     
@@ -67,7 +67,6 @@ router.post('/index', (req, res) => {
     Pet.create(req.body)
         .then(pet => {
             console.log(pet)
-            // res.json(fruit)
             res.redirect('/adopt-a-paw/pets/index')
         })
         .catch(err => {
@@ -76,13 +75,12 @@ router.post('/index', (req, res) => {
 })
 
 // GET - Index
-// localhost:3000/fruits
+// localhost:3000/adopt-a-paw/pets/index
 router.get('/index', (req, res) => {
-        // mongoose to find all fruits
+        // mongoose to find all pets
         Pet.find({})
-        // return fruits as json
+        // return pets as json
         .then(pets => {
-           // res.json(fruit)
         res.render('pets/index', { pets })
         })
         .catch(err => {
@@ -90,22 +88,22 @@ router.get('/index', (req, res) => {
         })
 })
 
-router.get('/mine', (req, res) => {
-    // find the pets associated with the logged in user
-    Pet.find({ owner: req.session.userId })
-        .then(pets => {
-            res.render('pets/index', { pets })
-        })
-        .catch(error => {
-            console.log(error)
-            res.json({ error })
-        })
-})
+// router.get('/mine', (req, res) => {
+//     // find the pets associated with the logged in user
+//     Pet.find({ owner: req.session.userId })
+//         .then(pets => {
+//             res.render('pets/index', { pets })
+//         })
+//         .catch(error => {
+//             console.log(error)
+//             res.json({ error })
+//         })
+// })
 
 
 
 // GET - Show
-// localhost:3000/fruits/:id <- change with the id being passed in
+// localhost:3000/adopt-a-paw/items/:id <- change with the id being passed in
 router.get('/:id', (req, res) => {
     const petId = req.params.id
     // console.log('petId', petId)
@@ -117,7 +115,6 @@ router.get('/:id', (req, res) => {
     // this also has to be anohter model 
         // send back some json
         .then(pet => {
-            // res.json(fruit)
             const userId = req.session.userId
             const username = req.session.username
             res.render('pets/show', { pet, userId, username })

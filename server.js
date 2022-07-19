@@ -51,15 +51,9 @@ app.use(express.static('public'));
 
 // app.use('/blockchain',blockchain);
 
-// this is middleware
-// everything in userRoutes must start with /users
 app.use('/adopt-a-paw/pets', petRoutes)
 app.use('/adopt-a-paw/items', itemRoutes)
 app.use('/users', userRoutes)
-
-// app.get('/adopt-a-paw/items', (req, res) => {
-// 	res.send('item index from server')
-// })
 
 app.get('/', (req, res) => {
 	res.redirect('/adopt-a-paw/home')

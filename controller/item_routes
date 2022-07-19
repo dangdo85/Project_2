@@ -1,7 +1,8 @@
 const express = require('express')
 
-// importing Fruit model to access database
+// importing item model to access database
 const Item = require('../models/item')
+const Pet = require('../models/pet')
 
 // making a router
 const router = express.Router()
@@ -33,7 +34,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 // PUT - Update
-// localhost:3000/fruits/:id
+// localhost:3000/adopt-a-paw/items/:id
 router.put('/:id', (req, res) => {
     const itemId = req.params.id
     // console.log('put route here')
@@ -76,13 +77,12 @@ router.post('/index', (req, res) => {
 })
 
 // GET - Index
-// localhost:3000/fruits
+// localhost:3000/adopt-a-paw/items/index
 router.get('/index', (req, res) => {
-    // mongoose to find all fruits
+    // mongoose to find all items
     Item.find({})
-    // // return fruits as json
+    // // return items as json
         .then(items => {
-            // res.json(fruit)
     // res.send('item index from routes')
             res.render('items/index', { items })
         })
@@ -91,22 +91,33 @@ router.get('/index', (req, res) => {
         })
 })
 
-router.get('/mine', (req, res) => {
-    // res.send('in mine route')
-    // find the items associated with the logged in user
-    Item.find({ owner: req.session.userId })
-        .then(items => {
-            res.render('items/index', { items })
-        })
-        .catch(error => {
-            console.log(error)
-            res.json({ error })
-        })
-})
+// router.get('adopt-a-paw/users/my_account', (req, res) => {
+//     res.send('mine route')
+
+    // const foo = await Item.find({ owner: req.session.userId })
+    // // all code inside this function stops until we get the response from Foo.findById
+    // const bar = await Pet.find({ owner: req.session.userId })
+    // // again all code stops until Bar.findById finishes
+    // res.render('users/user_account', { foo, bar })
+// })
+
+// router.get('/mine', (req, res) => {
+//     // res.send('in mine route')
+//     // find the items associated with the logged in user
+//     Item.find({ owner: req.session.userId })
+
+//         .then(items => {
+//             res.render('items/index', { items })
+//         })
+//         .catch(error => {
+//             console.log(error)
+//             res.json({ error })
+//         })
+// })
 
 
 // GET - Show
-// localhost:3000/fruits/:id <- change with the id being passed in
+// localhost:3000/adopt-a-paw/items/:id <- change with the id being passed in
 router.get('/:id', (req, res) => {
     const itemId = req.params.id
 
@@ -118,7 +129,6 @@ router.get('/:id', (req, res) => {
     // .populate('items.author')
         // send back some json
         .then(item => {
-            // res.json(fruit)
             const userId = req.session.userId
             const username = req.session.username
             res.render('items/show', { item, userId, username })

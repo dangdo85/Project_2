@@ -100,8 +100,6 @@ db.on('open', () => {
     // then we create that data
         .then(deletedItems => {
             console.log('this is what remove returns', deletedItems)
-
-            // now that our delete was successful, we can create our fruits
             Item.create(startItems)
                 .then(data => {
                     console.log('the new items', data)

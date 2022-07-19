@@ -10,7 +10,7 @@ const db = mongoose.connection
 
 // this runs the callback function when the db connection is opened from this file
 db.on('open', () => {
-    // array of starter fruits
+    // array of starter pets
     const startPets = [
         {
         title: "Friendly German Shepherd puppy",
@@ -159,7 +159,6 @@ db.on('open', () => {
         .then(deletedPets => {
             console.log('this is what remove returns', deletedPets)
 
-            // now that our delete was successful, we can create our fruits
             Pet.create(startPets)
                 .then(data => {
                     console.log('the new pets', data)

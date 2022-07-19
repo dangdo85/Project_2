@@ -1,0 +1,55 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+<a href="/adopt-a-paw/home" class="btn btn-info">Home</a>
+
+<div><a href="/adopt-a-paw/items/new">Create New Item Post</a>
+</div>
+<div><a href="/adopt-a-paw/pets/new">Create New Pet Post</a>
+</div>
+<div>
+    <h2 class="display-6">My Account Listing</h2>
+    <div class="row">
+            {% for pet in pets %}
+            <div class="card" style="width: 18rem">
+            <img src="`{{pet.images}}`" alt="img">
+                <a href="./{{pet._id}}"><h5 class="card-header">{{pet.title}}</h5></a>
+                <div class="card-body">
+                    <ul class='petInfo'>
+                    <li>Cost: {{pet.cost}}</li>
+                    <li>Location: {{pet.location}}</li>
+                    </ul>
+                    <div>
+                    <small>Author: {{ pet.owner }}</small>
+                    </div>
+                    <div>
+                    <small>Created: {{ pet.updatedAt }}</small>
+                    </div>
+                </div>
+                <a href="{{pet._id}}/edit" class="btn btn-primary">Edit Pet</a>
+            </div>
+        {% endfor %}
+
+        {% for item in items %}
+            <div class="card" style="width: 18rem">
+            <img src="`${item.images}`" alt="img">
+                <a href="./{{item._id}}"><h5 class="card-header">{{item.title}}</h5></a>
+                <div class="card-body">
+                    <ul class='itemInfo'>
+                    <li>Cost: {{item.price}}</li>
+                    <li>Location: {{item.location}}</li>
+                    </ul>
+                    <div>
+                    <small>Author: {{ item.owner }}</small>
+                    </div>
+                    <div>
+                    <small>Created: {{ item.updatedAt }}</small>
+                    </div>
+                    
+                </div>
+                <a href="{{item._id}}/edit" class="btn btn-primary">Edit Item</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 
