@@ -3,29 +3,30 @@
 {% block content %}
 <a href="/adopt-a-paw/home" class="btn btn-info">Home</a>
 
-<div><a href="/adopt-a-paw/pets/new">Create New Pet Post</a>
+<div><a href="/adopt-a-paw/pets/new">Create Pet Post</a>
 </div>
 <div>
-    <h2 class="display-6">All Pet Listing</h2>
+    <h2 class="display-6">Pet Postings</h2>
     <div class="row">
 
         {% for pet in pets %}
-            <div class="card" style="width: 18rem">
-            <img src="`{{pet.images}}`" alt="img">
+            <div class="card" style="width: 18rem; border-bottom: 5px">
+            <div>
+            <a href="./{{pet._id}}"><img src="{{pet.images}}"  alt="img" style=" max-height: 150px; width=auto"></a>
+            </div>
                 <a href="./{{pet._id}}"><h5 class="card-header">{{pet.title}}</h5></a>
                 <div class="card-body">
                     <ul class='petInfo'>
                     <li>Cost: {{pet.cost}}</li>
                     <li>Location: {{pet.location}}</li>
                     </ul>
-                    <div>
+                    {% comment %} <div>
                     <small>Author: {{ pet.owner }}</small>
-                    </div>
+                    </div> {% endcomment %}
                     <div>
                     <small>Created: {{ pet.updatedAt }}</small>
                     </div>
                 </div>
-                <a href="{{pet._id}}/edit" class="btn btn-primary">Edit Pet</a>
             </div>
         {% endfor %}
     </div>

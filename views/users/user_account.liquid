@@ -13,7 +13,7 @@
             {% for pet in pets %}
             <div class="card" style="width: 18rem">
             <img src="`{{pet.images}}`" alt="img">
-                <a href="./{{pet._id}}"><h5 class="card-header">{{pet.title}}</h5></a>
+                <a href="/adopt-a-paw/pets/{{pet._id}}"><h5 class="card-header">{{pet.title}}</h5></a>
                 <div class="card-body">
                     <ul class='petInfo'>
                     <li>Cost: {{pet.cost}}</li>
@@ -26,14 +26,14 @@
                     <small>Created: {{ pet.updatedAt }}</small>
                     </div>
                 </div>
-                <a href="{{pet._id}}/edit" class="btn btn-primary">Edit Pet</a>
+                <a href="/adopt-a-paw/pets/{{pet._id}}/edit" class="btn btn-primary">Edit Pet</a>
             </div>
         {% endfor %}
 
         {% for item in items %}
             <div class="card" style="width: 18rem">
             <img src="`${item.images}`" alt="img">
-                <a href="./{{item._id}}"><h5 class="card-header">{{item.title}}</h5></a>
+                <a href="/adopt-a-paw/items/{{item._id}}"><h5 class="card-header">{{item.title}}</h5></a>
                 <div class="card-body">
                     <ul class='itemInfo'>
                     <li>Cost: {{item.price}}</li>
@@ -47,7 +47,7 @@
                     </div>
                     
                 </div>
-                <a href="{{item._id}}/edit" class="btn btn-primary">Edit Item</a>
+                <a href="/adopt-a-paw/items{{item._id}}/edit" class="btn btn-primary">Edit Item</a>
             </div>
         {% endfor %}
     </div>

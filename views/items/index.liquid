@@ -3,15 +3,15 @@
 {% block content %}
 <a href="/adopt-a-paw/home" class="btn btn-info">Home</a>
 
-<div><a href="/adopt-a-paw/items/new">Create New Item Post</a>
+<div><a href="/adopt-a-paw/items/new">Create Service & Item Post</a>
 </div>
 <div>
-    <h2 class="display-6">All Item Listing</h2>
+    <h2 class="display-6">Service & Item Posts</h2>
     <div class="row">
 
         {% for item in items %}
             <div class="card" style="width: 18rem">
-            <img src="`${item.images}`" alt="img">
+            <a href="./{{item._id}}"><img src="{{item.images}}" alt="img" style=" height: 150px; width: auto"></a>
                 <a href="./{{item._id}}"><h5 class="card-header">{{item.title}}</h5></a>
                 <div class="card-body">
                     <ul class='itemInfo'>
@@ -19,14 +19,10 @@
                     <li>Location: {{item.location}}</li>
                     </ul>
                     <div>
-                    <small>Author: {{ item.owner }}</small>
-                    </div>
-                    <div>
                     <small>Created: {{ item.updatedAt }}</small>
                     </div>
                     
                 </div>
-                <a href="{{item._id}}/edit" class="btn btn-primary">Edit Item</a>
             </div>
         {% endfor %}
     </div>

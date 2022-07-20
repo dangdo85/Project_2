@@ -23,7 +23,8 @@ router.delete('/:id', (req, res) => {
 // GET route for displaying an update form
 router.get('/:id/edit', (req, res) => {
     const petId = req.params.id
-
+    const loggedIn = req.session.loggedIn
+    if (req.session.loggedIn) {
     Pet.findById(petId)
         .then(pet => {
             res.render('pets/edit', { pet })
@@ -31,6 +32,9 @@ router.get('/:id/edit', (req, res) => {
         .catch(err => {
             res.json(err)
         })
+    } else {
+        res.redirect("/users/login")
+    }
 })
 
 // PUT - Update
@@ -51,7 +55,11 @@ router.put('/:id', (req, res) => {
 router.get('/new', (req, res) => {
     const username = req.session.username
     const loggedIn = req.session.loggedIn
+    if (req.session.loggedIn) {
     res.render('pets/new', { username, loggedIn })
+    } else{
+        res.redirect("/users/login")
+    }
 })
 
 // POST - Create
@@ -88,17 +96,7 @@ router.get('/index', (req, res) => {
         })
 })
 
-// router.get('/mine', (req, res) => {
-//     // find the pets associated with the logged in user
-//     Pet.find({ owner: req.session.userId })
-//         .then(pets => {
-//             res.render('pets/index', { pets })
-//         })
-//         .catch(error => {
-//             console.log(error)
-//             res.json({ error })
-//         })
-// })
+// my_account route is in user_routes
 
 
 

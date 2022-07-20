@@ -1,0 +1,9 @@
+h1 {
+    display: flex;
+    justify-content: center
+}
+
+span {
+    width: 60px;
+    padding: 40px
+}
