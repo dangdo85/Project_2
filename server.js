@@ -63,7 +63,8 @@ app.get('/adopt-a-paw', (req, res) => {
 })
 
 app.get('/adopt-a-paw/home', (req, res) => {
-	res.render('home.liquid')
+	const loggedIn = req.session.loggedIn
+	res.render('home.liquid', {loggedIn})	
 })
 
 // const PORT = process.env.PORT

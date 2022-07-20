@@ -120,7 +120,7 @@ router.get('/my_account', async (req, res) => {
     const items = await Item.find({ owner: req.session.userId })
     const pets = await Pet.find({ owner: req.session.userId })
     if (req.session.loggedIn) {
-    res.render('users/user_account', { items, pets})
+    res.render('users/user_account', { items, pets, loggedIn})
     } else {
         res.redirect("/users/login")
     }

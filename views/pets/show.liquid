@@ -1,7 +1,7 @@
 {% layout 'layout.liquid' %}
 
 {% block content %}
-<a href="/adopt-a-paw/pets/index" class="btn btn-info">Pet Posts</a>
+<a href="/adopt-a-paw/pets/index" class="btn btn-info">Pet Postings</a>
 <div>
     <h2 class="display-7">{{pet.title}}</h2>
     <div class="row">
@@ -25,7 +25,9 @@
                     </ul>
                 </div>
                 {% if loggedIn %}
+                <div>
                 <a href="{{pet._id}}/edit" class="btn btn-primary">Edit Pet Post</a> 
+                </div>
                 <form action="/adopt-a-paw/pets/{{pet._id}}/?_method=DELETE" method="POST">
                     <input type="submit" value="Delete" class="btn btn-danger">
                 </form>
