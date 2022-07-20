@@ -10,7 +10,9 @@ const router = express.Router()
 // DELETE - Delete
 router.delete('/:id', (req, res) => {
     const petId = req.params.id
+    const loggedIn = req.session.loggedIn
     // console.log('petId', petId)
+    if (req.session.loggedIn) {
     Pet.findByIdAndRemove(petId)
         .then(pet => {
             res.redirect('/adopt-a-paw/pets/index')
@@ -18,6 +20,9 @@ router.delete('/:id', (req, res) => {
         .catch(err => {
             res.json(err)
         })
+    } else {
+        res.redirect("/users.login")
+    }
 })
 
 // GET route for displaying an update form
@@ -68,9 +73,9 @@ router.post('/index', (req, res) => {
     // now that we have user specific pets, we'll add a username upon creation
     // remember, when we login, we saved the username to the session object
     // using the ._id to set the owner field
-    
+    const loggedIn = req.session.loggedIn
     req.body.owner = req.session.userId
-
+    if (req.session.loggedIn) {
     console.log(req.body)
     Pet.create(req.body)
         .then(pet => {
@@ -80,16 +85,20 @@ router.post('/index', (req, res) => {
         .catch(err => {
             res.json(err)
         })
+    } else {
+        res.redirect("/users/login")
+    }
 })
 
 // GET - Index
 // localhost:3000/adopt-a-paw/pets/index
 router.get('/index', (req, res) => {
+    const loggedIn = req.session.loggedIn
         // mongoose to find all pets
         Pet.find({})
         // return pets as json
         .then(pets => {
-        res.render('pets/index', { pets })
+        res.render('pets/index', { pets, loggedIn })
         })
         .catch(err => {
             res.json(err)
@@ -104,6 +113,7 @@ router.get('/index', (req, res) => {
 // localhost:3000/adopt-a-paw/items/:id <- change with the id being passed in
 router.get('/:id', (req, res) => {
     const petId = req.params.id
+    const loggedIn = req.session.loggedIn
     // console.log('petId', petId)
     // console.log('param', req.params.id)
     Pet.findById(petId)
@@ -115,7 +125,7 @@ router.get('/:id', (req, res) => {
         .then(pet => {
             const userId = req.session.userId
             const username = req.session.username
-            res.render('pets/show', { pet, userId, username })
+            res.render('pets/show', { pet, userId, username, loggedIn })
         })
         .catch(err => {
             res.json(err)

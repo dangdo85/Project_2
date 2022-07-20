@@ -98,7 +98,7 @@ db.on('open', () => {
         location: 'Athens, GA',
         name_of_contact: 'Jeff',
         contact_info: 'Jeff6@gmail.com 678 555-5555',
-        image:'https://www.morereptiles.com/wp-content/uploads/2021/11/How-Much-Is-A-Bearded-Dragon.png'
+        images:'https://www.morereptiles.com/wp-content/uploads/2021/11/How-Much-Is-A-Bearded-Dragon.png'
     }, {
         title: "lovable pug looking for a welcoming family",
         cost: "$200",
@@ -127,7 +127,7 @@ db.on('open', () => {
         location: 'Boston, MA',
         name_of_contact: 'Sammy',
         contact_info: 'sammy8@gmail.com 123 456-7890',
-        image:'https://cdn-fastly.petguide.com/media/2022/02/16/8209448/american-pitbull-terrier.jpg?size=720x845&nocrop=1'
+        images:'https://cdn-fastly.petguide.com/media/2022/02/16/8209448/american-pitbull-terrier.jpg?size=720x845&nocrop=1'
     }, {
         title: "Easy to care for tabby",
         cost: "$99",
@@ -142,7 +142,7 @@ db.on('open', () => {
         location: 'Chicago, IL',
         name_of_contact: 'David',
         contact_info: 'David9@gmail.com 555 555-5555',
-        image:'https://as2.ftcdn.net/v2/jpg/01/87/09/05/1000_F_187090534_Uf43YSw4fMDi8onTZvQICCUpCtaR6BsR.jpg'
+        images:'https://as2.ftcdn.net/v2/jpg/01/87/09/05/1000_F_187090534_Uf43YSw4fMDi8onTZvQICCUpCtaR6BsR.jpg'
     }, {
         title: "Piper the Parakeet",
         cost: "$30",
@@ -157,7 +157,7 @@ db.on('open', () => {
         location: 'Salt Lake City, UT',
         name_of_contact: 'Jackie',
         contact_info: 'jackie0@gmail.com',
-        image:'https://www.thesprucepets.com/thmb/6HDQlAKbMqwsrOctWcE5XiMKtYM=/4373x3280/smart/filters:no_upscale()/parakeet-budgie-budgerigar-952787256-5b52a7d046e0fb0037bec8a7.jpg'
+        images:'https://www.thesprucepets.com/thmb/6HDQlAKbMqwsrOctWcE5XiMKtYM=/4373x3280/smart/filters:no_upscale()/parakeet-budgie-budgerigar-952787256-5b52a7d046e0fb0037bec8a7.jpg'
     },  
     ]
 
