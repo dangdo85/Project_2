@@ -67,11 +67,11 @@ app.get('/adopt-a-paw/home', (req, res) => {
 	res.render('home.liquid', {loggedIn})	
 })
 
-// const PORT = process.env.PORT
+const PORT = process.env.PORT
 
-// app.listen(PORT, () => {
-// 	console.log(`app is listening on port: ${PORT}`)
-// })
+app.listen(PORT, () => {
+	console.log(`app is listening on port: ${PORT}`)
+})
 
 
-app.listen(process.env.PORT || 3000)
+// app.listen(process.env.PORT || 3000)

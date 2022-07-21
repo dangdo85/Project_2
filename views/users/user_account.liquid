@@ -19,14 +19,20 @@
                     <li>Cost: {{pet.cost}}</li>
                     <li>Location: {{pet.location}}</li>
                     </ul>
-                    <div>
-                    <small>Author: {{ pet.owner }}</small>
                     </div>
                     <div>
                     <small>Created: {{ pet.updatedAt }}</small>
                     </div>
+                
+                {% if loggedIn %}
+                <div>
+                <a href="/adopt-a-paw/pets/{{pet._id}}/edit" class="btn btn-primary">Edit Post</a> 
                 </div>
-                <a href="/adopt-a-paw/pets/{{pet._id}}/edit" class="btn btn-primary">Edit Pet</a>
+                <form action="/adopt-a-paw/pets/{{pet._id}}/?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+                {% endif %}
+                </div>
             </div>
         {% endfor %}
 
@@ -40,19 +46,15 @@
                     <li>Location: {{item.location}}</li>
                     </ul>
                     <div>
-                    <small>Author: {{ item.owner }}</small>
-                    </div>
-                    <div>
                     <small>Created: {{ item.updatedAt }}</small>
                     </div>
-                    
-                </div>
                 <div>
-                <a href="/adopt-a-paw/items{{item._id}}/edit" class="btn btn-primary">Edit Item</a>
+                <a href="/adopt-a-paw/items/{{item._id}}/edit" class="btn btn-primary">Edit Post</a>
                 </div>
                 <form action="/adopt-a-paw/items/{{item._id}}/?_method=DELETE" method="POST">
                     <input type="submit" value="Delete" class="btn btn-danger">
                 </form> 
+                </div>
             </div>
         {% endfor %}
     </div>

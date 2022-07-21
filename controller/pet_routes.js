@@ -15,7 +15,7 @@ router.delete('/:id', (req, res) => {
     if (req.session.loggedIn) {
     Pet.findByIdAndRemove(petId)
         .then(pet => {
-            res.redirect('/adopt-a-paw/pets/index')
+            res.redirect('/users/my_account')
         })
         .catch(err => {
             res.json(err)
@@ -49,7 +49,7 @@ router.put('/:id', (req, res) => {
 
     Pet.findByIdAndUpdate(petId, req.body, { new: true })
         .then(pet => {
-            res.redirect(`${pet._id}`)
+            res.redirect('/users/my_account')
         })
         .catch(err => {
             res.json(err)
@@ -80,7 +80,7 @@ router.post('/index', (req, res) => {
     Pet.create(req.body)
         .then(pet => {
             console.log(pet)
-            res.redirect('/adopt-a-paw/pets/index')
+            res.redirect('/users/my_account')
         })
         .catch(err => {
             res.json(err)

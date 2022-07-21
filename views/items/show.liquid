@@ -1,7 +1,7 @@
 {% layout 'layout.liquid' %}
 
 {% block content %}
-<a href="/adopt-a-paw/items/index" class="btn btn-info">Service & Item Postings</a>
+<a href="/adopt-a-paw/items/index" class="btn btn-info">Service & Item Posts</a>
 <div>
     <h2 class="display-7">{{item.title}}</h2>
     <div class="row">
@@ -23,14 +23,14 @@
                     <small>Created: {{item.updatedAt }}</small>
                     </div>
                 </div>
-                {% if LoggedIn %}
+                {% comment %} {% if LoggedIn %}
                 <div>
-                <a href="{{item._id}}/edit" class="btn btn-primary">Edit Item Post</a> 
+                <a href="{{item._id}}/edit" class="btn btn-primary">Edit Post</a> 
                 </div>
                 <form action="/adopt-a-paw/items/{{item._id}}/?_method=DELETE" method="POST">
                     <input type="submit" value="Delete" class="btn btn-danger">
                 </form> 
-                {% endif %}
+                {% endif %} {% endcomment %}
             </div>
 
     </div>
