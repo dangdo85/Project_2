@@ -3,43 +3,44 @@
 {% block content %}
 <a href="/adopt-a-paw/home" class="btn btn-info">Home</a>
 
-<div><a href="/adopt-a-paw/items/new">Create New Item Post</a>
+<div><a href="/adopt-a-paw/pets/new">Create Pet Post</a>
 </div>
-<div><a href="/adopt-a-paw/pets/new">Create New Pet Post</a>
+<div><a href="/adopt-a-paw/items/new">Create Item Post</a>
 </div>
+
 <div>
-    <h2 class="display-6">My Account</h2>
+    <h2 class="display-6"><span class="username">{{username}}'s</span> Account</h2>
     <div class="row">
-            {% for pet in pets %}
-            <div class="card" style="width: 18rem">
-            <img src="`{{pet.images}}`" alt="img">
-                <a href="/adopt-a-paw/pets/{{pet._id}}"><h5 class="card-header">{{pet.title}}</h5></a>
-                <div class="card-body">
-                    <ul class='petInfo'>
-                    <li>Cost: {{pet.cost}}</li>
-                    <li>Location: {{pet.location}}</li>
-                    </ul>
-                    </div>
-                    <div>
-                    <small>Created: {{ pet.updatedAt }}</small>
-                    </div>
+        {% for pet in pets %}
+        <div class="card" style="width: 18rem">
+            <a href="/adopt-a-paw/pets/{{pet._id}}"><img src="`{{pet.images}}`" alt="img">
+            <h5 class="card-header">{{pet.title}}</h5></a>
+            <div class="card-body">
+                <ul class='petInfo'>
+                <li>Cost: {{pet.cost}}</li>
+                <li>Location: {{pet.location}}</li>
+                </ul>
+            </div>
+            <div>
+                <small>Created: {{ pet.updatedAt }}</small>
+            </div>
                 
                 {% if loggedIn %}
-                <div>
-                <a href="/adopt-a-paw/pets/{{pet._id}}/edit" class="btn btn-primary">Edit Post</a> 
-                </div>
+            <div>
+                    <a href="/adopt-a-paw/pets/{{pet._id}}/edit" class="btn btn-primary">Edit Post</a> 
+            </div>
                 <form action="/adopt-a-paw/pets/{{pet._id}}/?_method=DELETE" method="POST">
                     <input type="submit" value="Delete" class="btn btn-danger">
                 </form>
                 {% endif %}
-                </div>
-            </div>
+        </div>
+        
         {% endfor %}
 
         {% for item in items %}
             <div class="card" style="width: 18rem">
-            <img src="`${item.images}`" alt="img">
-                <a href="/adopt-a-paw/items/{{item._id}}"><h5 class="card-header">{{item.title}}</h5></a>
+                <a href="/adopt-a-paw/items/{{item._id}}"><img src="`${item.images}`" alt="img">
+                <h5 class="card-header">{{item.title}}</h5></a>
                 <div class="card-body">
                     <ul class='itemInfo'>
                     <li>Cost: {{item.price}}</li>
@@ -47,9 +48,9 @@
                     </ul>
                     <div>
                     <small>Created: {{ item.updatedAt }}</small>
-                    </div>
+                </div>
                 <div>
-                <a href="/adopt-a-paw/items/{{item._id}}/edit" class="btn btn-primary">Edit Post</a>
+                    <a href="/adopt-a-paw/items/{{item._id}}/edit" class="btn btn-primary">Edit Post</a>
                 </div>
                 <form action="/adopt-a-paw/items/{{item._id}}/?_method=DELETE" method="POST">
                     <input type="submit" value="Delete" class="btn btn-danger">
@@ -57,6 +58,7 @@
                 </div>
             </div>
         {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %} 

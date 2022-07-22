@@ -94,11 +94,12 @@ router.post('/index', (req, res) => {
 // localhost:3000/adopt-a-paw/pets/index
 router.get('/index', (req, res) => {
     const loggedIn = req.session.loggedIn
+    const username = req.session.username
         // mongoose to find all pets
-        Pet.find({})
+        Pet.find({}).sort({updatedAt:'descending'})
         // return pets as json
         .then(pets => {
-        res.render('pets/index', { pets, loggedIn })
+        res.render('pets/index', { pets, loggedIn, username })
         })
         .catch(err => {
             res.json(err)

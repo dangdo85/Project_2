@@ -29,17 +29,16 @@ As a user:
     - pet available for adoption
         - title: string
         - species: string
-        - primary_breed: string
-        - secondary_breed: string
-        - age: number
-        - sex: boolean
-        - weight: number
+        - breed: string
+        - age: string
+        - sex: string
+        - size: string
         - name: string
         - color: string
-        - cost: number
+        - cost: string
+        - other_descriptions: string
         - location: string
         - images: string(url?)(upload?)
-        - special_needs: boolean
         - name of owner/contact: string
         - contact info: string
         - time stamp
@@ -47,7 +46,7 @@ As a user:
     - pet items available for sale
         - title: string
         - items: string
-        - price: number
+        - price: string
         - location: string
         - name of owner/contact: string
         - contact info: string
@@ -56,11 +55,14 @@ As a user:
 
 
 Stretch goals
-- search for specific post
+- search/filter for specific post
     - search bar
+- user can upload images
 - a slide show for image gallery
 - counter for number of views for each post
 - favorite a post
+- use an API
+- field error
 
 
 ERD

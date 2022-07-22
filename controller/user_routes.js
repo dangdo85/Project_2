@@ -117,10 +117,11 @@ router.get('/logout', (req, res) => {
 router.get('/my_account', async (req, res) => {
     // const userId = req.session.userId
     const loggedIn = req.session.loggedIn
-    const items = await Item.find({ owner: req.session.userId })
-    const pets = await Pet.find({ owner: req.session.userId })
+    const username = req.session.username
+    const items = await Item.find({ owner: req.session.userId }).sort({updatedAt:'descending'})
+    const pets = await Pet.find({ owner: req.session.userId }).sort({updatedAt:'descending'})
     if (req.session.loggedIn) {
-    res.render('users/user_account', { items, pets, loggedIn})
+    res.render('users/user_account', { items, pets, loggedIn, username})
     } else {
         res.redirect("/users/login")
     }

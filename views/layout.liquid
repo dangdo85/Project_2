@@ -21,7 +21,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
             {% if loggedIn %}
-                <a href="/users/my_account" class="nav-link text-light">My Account</a>
+                <a href="/users/my_account" class="nav-link text-light px-5"><span class='username'>{{username}}'s</span> Account</a>
                 <a href="/users/logout" class="nav-link text-light">Log Out</a>
 
             {% else %}

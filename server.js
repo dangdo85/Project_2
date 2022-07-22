@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
+const moment = require('moment')
 // const expressValidator = require('express-validator');
 
 const petRoutes = require('./controller/pet_routes')
@@ -64,7 +65,8 @@ app.get('/adopt-a-paw', (req, res) => {
 
 app.get('/adopt-a-paw/home', (req, res) => {
 	const loggedIn = req.session.loggedIn
-	res.render('home.liquid', {loggedIn})	
+	const username = req.session.username
+	res.render('home.liquid', { loggedIn, username })	
 })
 
 const PORT = process.env.PORT
