@@ -1,39 +1,70 @@
 {% layout 'layout.liquid' %}
 
 {% block content %}
-<a href="/adopt-a-paw/home" class="btn btn-info">Home</a>
+  <a href="/adopt-a-paw/home" class="btn btn-info">Home</a>
 
-<div><a href="/adopt-a-paw/pets/new">Create Pet Post</a>
-</div>
-<div>
+  <div>
+    <a href="/adopt-a-paw/pets/new">Create Pet Post</a>
+  </div>
+  <div>
     <h2 class="display-6">Pet Postings</h2>
     <div class="row">
 
-        {% for pet in pets %}
-            <div class="card" style="width: 18rem; border-bottom: 5px">
+      {% for pet in pets %}
+        <div class="card" style="width: 18rem; border-bottom: 5px">
+          <div class="picture">
+            {% if pet.photos.length == 0 %}
+              <h3>No photos available</h3>
+            {% else %}
+              <a href="./{{pet._id}}"><img
+                  src="{{pet.photos[0].medium}}"
+                  alt="img"
+                  style=" max-height: 150px; width:auto; margin: 0 auto;"></a>
+            {% endif %}
+
+          </div>
+          <a href="./{{pet._id}}">
+            <h5 class="card-header">
+              {% if pet.title == null %}
+                {{ pet.name }}
+                {% else %}
+                {{ pet.title }}
+              {% endif %}
+            </h5>
+          </a>
+          <div class="card-body">
+            <ul class='petInfo'>
+              <li>Cost:
+                {% if pet.cost == null %}
+                  Contact owner
+                {% else %}
+                  {{ pet.cost }}
+                {% endif %}
+              </li>
+              {% comment %} <li>Location: {{pet.location}}</li> {% endcomment %}
+              <li>Location: {{ pet.contact.address.city }}, {{ pet.contact.address.state }}, {{ pet.contact.address.postcode }}
+              </li>
+            </ul>
+            {% comment %} <div>
+            <small>Author: {{ pet.owner }}</small>
+            </div> {% endcomment %}
             <div>
-            <a href="./{{pet._id}}"><img src="{{pet.images}}"  alt="img" style=" max-height: 150px; width=auto"></a>
+              <small>Last Updated:
+                {% if pet.updatedAt == null %}
+                  {{ pet.status_changed_at | date: "%Y-%m-%d %H:%M" }}
+                {% else %}
+                  {{ pet.updatedAt | date: "%Y-%m-%d %H:%M" }}
+                {% endif %}
+              </small>
             </div>
-                <a href="./{{pet._id}}"><h5 class="card-header">{{pet.title}}</h5></a>
-                <div class="card-body">
-                    <ul class='petInfo'>
-                    <li>Cost: {{pet.cost}}</li>
-                    <li>Location: {{pet.location}}</li>
-                    </ul>
-                    {% comment %} <div>
-                    <small>Author: {{ pet.owner }}</small>
-                    </div> {% endcomment %}
-                    <div>
-                    <small>Created: {{ pet.updatedAt }}</small>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
     </div>
-</div>
-<style>
-body {
-    background-image: url("https://us.123rf.com/450wm/elovich/elovich1704/elovich170400349/75383483-white-wood-texture-background-wooden-table-top-view.jpg?ver=6")
-} 
-</style>
+  </div>
+  <style>
+    body {
+      background-image: url("https://us.123rf.com/450wm/elovich/elovich1704/elovich170400349/75383483-white-wood-texture-background-wooden-table-top-view.jpg?ver=6")
+    }
+  </style>
 {% endblock %}

@@ -5,9 +5,9 @@ const methodOverride = require('method-override')
 const moment = require('moment')
 // const expressValidator = require('express-validator');
 
-const petRoutes = require('./controller/pet_routes')
-const itemRoutes = require('./controller/item_routes')
-const userRoutes = require('./controller/user_routes')
+const petRoutes = require('./routes/pet_routes')
+const itemRoutes = require('./routes/item_routes')
+const userRoutes = require('./routes/user_routes')
 
 const app = require('liquid-express-views')(express())
 app.use(morgan('tiny'))

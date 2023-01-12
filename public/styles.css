@@ -1,9 +1,25 @@
 h1 {
     display: flex;
-    justify-content: center
+    justify-content: center;
 }
 .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 auto; */
   margin: 7px;
+  padding: 7px;
+  width: 18rem; 
+  border-bottom: 5px;
+}
+
+.card-header {
+  text-align: center;
+  /* mergin-left: ;
+  margin-right: ; */
+}
+.card image {
+  margin: 0 auto;
 }
 
 .column {

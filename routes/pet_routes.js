@@ -7,6 +7,7 @@ const express = require("express");
 const Pet = require("../models/pet");
 
 const { getNewToken, getToken } = require("../models/petsAPI_config");
+const { getPet } = require("../controllers/petfinder_controller");
 
 // making a router
 const router = express.Router();
@@ -95,31 +96,32 @@ router.post("/index", (req, res) => {
 
 // GET - Index
 // localhost:3000/adopt-a-paw/pets/index
-router.get("/index", (req, res) => {
+router.get("/index", async (req, res) => {
   const loggedIn = req.session.loggedIn;
   const username = req.session.username;
 
-  getToken().then((token) => {
-    axios({
-        // update for search capability
-  	url: 'https://api.petfinder.com/v2' + '/animals?type=dog',
-  	method: 'GET',
-  	headers: {
-          Authorization: `Bearer ${token}`,
-  		// Authorization: `Bearer ${user.token}`,
-  	},
-  })
-  .then(({data}) => res.json(data))
-  .catch((error) => console.log(error))
-  });
+  // getToken().then((token) => {
+  //   axios({
+  //       // update for search capability
+  // 	url: 'https://api.petfinder.com/v2' + '/animals?type=dog',
+  // 	method: 'GET',
+  // 	headers: {
+  //         Authorization: `Bearer ${token}`,
+  // 	},
+  // })
+  // .then(({data}) => res.json(data))
+  // .catch((error) => console.log(error))
+  // });
   // have to run twice to see console.log of bearerToken
-  console.log("this is our getToken", getToken());
+  // console.log("this is our getToken", getToken());
 
   // mongoose to find all pets
   // Pet.find({}).sort({updatedAt:'descending'})
   // // return pets as json
   // .then(pets => {
-  // res.render('pets/index', { pets, loggedIn, username })
+  const pets = await getPet();
+  // res.send(pets)
+  res.render("pets/index", { pets, loggedIn, username });
   // })
   // .catch(err => {
   //     res.json(err)
