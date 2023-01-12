@@ -1,7 +1,7 @@
 {
   "name": "project_2",
   "version": "1.0.0",
-  "description": "User story:     User is able to use the app to look at posts of pets available for adoption or post a request for a specific pet. Use is able to create an account and must have account to create a post. User is able to edit and delete post he/she has created. User is able to sign in and log out of account.",
+  "description": "User story:     User is able to use the app to look at posts of pets available for adoption or post a request for a specific pet. User is able to create an account and must have account to create a post. User is able to edit and delete post he/she has created. User is able to sign in and log out of account.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/dangdo85/Project_2#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "connect-mongo": "^4.6.0",
